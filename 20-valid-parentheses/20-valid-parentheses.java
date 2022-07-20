@@ -1,15 +1,14 @@
 class Solution {
     public boolean isValid(String s) {
-        ArrayList<Character> arr = new ArrayList<Character>(s.length());
-        int l = -1;
-        char match;
+        ArrayList<Character> stack = new ArrayList<Character>(s.length());
+        int l = -1;//points to the top of the stack
+        char match; //temperorily store closing parenthesis
         if(s.length()%2!=0)
             return false;
-        ArrayList<Character> stack = arr;
         for(int i=0;i<s.length();i++){
             char temp = s.charAt(i);
             if(temp=='(' || temp == '{' || temp == '['){
-                arr.add(temp);
+                stack.add(temp);
                 l++;
             }
             else{
