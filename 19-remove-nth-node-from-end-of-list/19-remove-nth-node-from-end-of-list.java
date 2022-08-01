@@ -10,9 +10,8 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode temp, prev ,curr;
+        ListNode temp,curr;
         int size = 0;
-        int remove_at=0;
         if(head == null){
             return head;
         }
@@ -23,14 +22,13 @@ class Solution {
             size++;
         }
         
-        remove_at = size - n;
         
-        if(remove_at == 0){
+        if(size - n == 0){
             return head.next;
         }
         
         curr=head;
-        for(int i=1;i<remove_at;i++){
+        for(int i=1;i<size - n;i++){
             curr = curr.next;
         }
         curr.next = curr.next.next;
